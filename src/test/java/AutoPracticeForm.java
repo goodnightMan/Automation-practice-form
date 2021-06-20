@@ -16,11 +16,11 @@ public class AutoPracticeForm {
         Configuration.startMaximized = true;
     }
 
-    @AfterEach
+  /*  @AfterEach
     void closeBrowser() {
         closeWebDriver();
-    }
-
+   }
+  */
     @Test
     void selenidePracticeForm() {
         String fName = "Bill";
@@ -34,22 +34,22 @@ public class AutoPracticeForm {
 
         open("https://demoqa.com/automation-practice-form");
 
-        $("[id=firstName]").setValue(fName);
-        $("[id=lastName]").setValue(lName);
-        $("[id=userEmail]").setValue(uMail);
+        $("#firstName").setValue(fName);
+        $("#lastName").setValue(lName);
+        $("#userEmail").setValue(uMail);
         $("[for=gender-radio-1]").click();
-        $("[id=userNumber]").setValue(uNumber);
-        $("[id=dateOfBirthInput]").click();
+        $("#userNumber").setValue(uNumber);
+        $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption("April");
         $(".react-datepicker__year-select").selectOption("1999");
         $(".react-datepicker__day.react-datepicker__day--015").click();
-        $("[id=subjectsInput]").setValue(subject).pressEnter();
+        $("#subjectsInput").setValue(subject).pressEnter();
         $("[for=hobbies-checkbox-1]").click();
-        $("[id=uploadPicture]").uploadFile(new File("src/test/picture/1.jpeg"));
-        $("[id=currentAddress]").setValue(currAddr);
-        $("[id=react-select-3-input]").setValue(state).pressEnter();
-        $("[id=react-select-4-input]").setValue(city).pressEnter();
-        $("[id=submit]").click();
+        $("#uploadPicture").uploadFile(new File("src/test/resources/1.jpeg"));
+        $("#currentAddress").setValue(currAddr);
+        $("#react-select-3-input").setValue(state).pressEnter();
+        $("#react-select-4-input").setValue(city).pressEnter();
+        $("#submit").click();
 
 
         $(".table-responsive").shouldHave(
